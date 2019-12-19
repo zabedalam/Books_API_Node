@@ -11,7 +11,7 @@ server.use(express.json())
 console.log(port)
 
 server.use("/books",booksRouter)
-server.use("/customers",customerRouter)
+ server.use("/customers",customerRouter)
 
 server.listen(port,()=>{
     console.log("I am listening on port" + port)
