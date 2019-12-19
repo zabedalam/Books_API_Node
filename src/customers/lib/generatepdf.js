@@ -2,8 +2,10 @@
 const {join}=require("path")
 const pdfPrinter=require("pdfmake")
 const fs = require("fs-extra");
+// const pdf = require('html-pdf');
+// const getDocDefination = require("./pdftemplate");
 
-const generatePDF=()=> new Promise((resolve,reject)=>{
+const generatePDF=(usersArr)=> new Promise((resolve,reject)=>{
 try{
     var fonts = {
         Roboto: {
@@ -27,6 +29,7 @@ const docDefinition = {
       ]
     // ...
   };
+// const docDefinition=getDocDefination(usersArr)
   const pdfDoc = printer.createPdfKitDocument(docDefinition,{});
   pdfDoc.pipe(fs.createWriteStream(join(__dirname,'document.pdf')));
   pdfDoc.end();
